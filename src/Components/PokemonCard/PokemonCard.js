@@ -1,10 +1,18 @@
 import React from 'react'
+import { Card } from './pokemonCardStyle'
 
-const PokemonCard = () => {
+const PokemonCard = ({tela, setTela}) => {
+
   return (
-    <div>
-      
-    </div>
+    <>
+      <Card>
+        <h2>POKE CARD</h2>
+        <div>
+          <button onClick={(e)=> setTela('PokemonDetailPage')}>detalhes</button>
+          <button>capturar</button>
+        </div>
+      </Card>
+    </>
   )
 }
 

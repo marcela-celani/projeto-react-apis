@@ -1,10 +1,25 @@
 import React from 'react'
+import PokemonCard from '../../Components/PokemonCard/PokemonCard'
+import { Container } from './pokemonListStyle'
+import HeaderPokemonlist from '../../Components/Header/HeaderPokemonlist'
 
-const PokemonListPage = () => {
+const PokemonListPage = ({tela, setTela}) => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <HeaderPokemonlist tela={tela} setTela={setTela}/>
+      <h1>Todos os Pokémons</h1>
+      <Container>
+        <PokemonCard tela={tela} setTela={setTela}/>
+        <PokemonCard tela={tela} setTela={setTela}/>
+        <PokemonCard tela={tela} setTela={setTela}/>
+        <PokemonCard tela={tela} setTela={setTela}/>
+        <PokemonCard tela={tela} setTela={setTela}/>
+        <PokemonCard tela={tela} setTela={setTela}/>
+        <PokemonCard tela={tela} setTela={setTela}/>
+        <PokemonCard tela={tela} setTela={setTela}/>
+        <PokemonCard tela={tela} setTela={setTela}/>
+      </Container>
+    </>
   )
 }
 
