@@ -1,11 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { createGlobalStyle } from "styled-components";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const GlobalStyle = createGlobalStyle`
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+  
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #5d5d5d;
+}
+
+code {
+  font-family: sans-serif;
+}
+`;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <GlobalStyle />
     <App />
   </React.StrictMode>
 );
