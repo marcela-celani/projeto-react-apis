@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
+import PokemonProvider from "./contexts/PokemonContext";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -25,10 +26,12 @@ code {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <GlobalStyle />
-    <App />
-  </React.StrictMode>
+  <PokemonProvider>
+    <React.StrictMode>
+      <GlobalStyle />
+      <App />
+    </React.StrictMode>
+  </PokemonProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
