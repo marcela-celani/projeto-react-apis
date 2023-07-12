@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import pokeball from '../../assets/pokeball.png'
 
 export const Card = styled.div`
     display: flex;
@@ -8,17 +9,26 @@ export const Card = styled.div`
     justify-content: space-between;
     margin: 26.5px 15px;
     border-radius: 12px;
+    background-image: url(${pokeball});
+    background-size: 250px;
+    background-repeat: no-repeat;
+    background-position: 220px -30px;
 `
 export const ContainerId = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 1rem;
     justify-content: space-between;
+
+    .etiqueta {
+        margin-left: 23px;
+        margin-top: 23px;
+    }
     
     h2 {
         color: white;
         font-size: 32px;
         font-weight: 700;
+        line-height: normal;
     }
 
     h4 {
@@ -26,23 +36,12 @@ export const ContainerId = styled.div`
         font-size: 16px;
         font-weight: 700;
     }
+`
 
-    img.pokemon {
-        width: 193px;
-        height: 193px;
-        margin: -3rem 0.5rem;
-        z-index: 1;
-    }
-
-    img.pokeball {
-        width: 210px;
-        height: 210px;
-        z-index: 0;
-
-
-       
-    }
-
+export const ImgPoke = styled.img`
+    width: 193px;
+    height: 193px;
+    margin: -53px 0.5rem;
 `
 
 export const ContainerButton = styled.div`
@@ -50,7 +49,6 @@ export const ContainerButton = styled.div`
     justify-content: space-between;
     margin: 1rem 1rem;
     align-items: center;
-
 `
 
 export const ButtonDetalhes = styled.button`

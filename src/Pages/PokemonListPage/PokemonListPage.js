@@ -23,7 +23,7 @@ const PokemonListPage = ({tela, setTela}) => {
           <PokemonCard 
             getPokemons={getPokemons}
             pokemon={item}
-            image={item.data.sprites.other.dream_world.front_default}
+            image={item.data.sprites.other['official-artwork'].front_default}
             name={item.data.name}
             id={item.data.id}
             key={item.data.id}

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Card, ButtonDetalhes, ButtonCapturar, ContainerButton,ContainerId } from './pokemonCardStyle'
-import pokeball from '../../assets/pokeball.png'
+import { Card, ButtonDetalhes, ButtonCapturar, ContainerButton,ContainerId, ImgPoke } from './pokemonCardStyle'
 
 const PokemonCard = ({tela, setTela, image, type, id, name }) => {
 
@@ -39,15 +38,12 @@ const PokemonCard = ({tela, setTela, image, type, id, name }) => {
     <>
       <Card style={{backgroundColor}}>
         <ContainerId>
-          <div>
+          <div className='etiqueta'>
             <h4>{id < 10 ? `#0${id}` : `#${id}`}</h4>
             <h2>{`${name}`.charAt(0).toUpperCase() + `${name}`.slice(1)}</h2>
             <h3>{type}</h3>
           </div>
-          <div>
-            <img className='pokemon' src={image} alt=''/>
-            {/* <img className='pokeball' src={pokeball} alt='' /> */}
-          </div>
+          <ImgPoke src={image} alt=''/>
         </ContainerId>
         <ContainerButton>
           <div>
