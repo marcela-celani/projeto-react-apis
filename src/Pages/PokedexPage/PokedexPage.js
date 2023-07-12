@@ -9,15 +9,7 @@ const PokedexPage = ({tela, setTela}) => {
       <HeaderPokedex tela={tela} setTela={setTela}/>
       <h1>Meus Pokémons</h1>
       <Container>
-        <PokemonCard tela={tela} setTela={setTela}/>
-        <PokemonCard tela={tela} setTela={setTela}/>
-        <PokemonCard tela={tela} setTela={setTela}/>
-        <PokemonCard tela={tela} setTela={setTela}/>
-        <PokemonCard tela={tela} setTela={setTela}/>
-        <PokemonCard tela={tela} setTela={setTela}/>
-        <PokemonCard tela={tela} setTela={setTela}/>
-        <PokemonCard tela={tela} setTela={setTela}/>
-        <PokemonCard tela={tela} setTela={setTela}/>
+  
       </Container>
     </>
   )

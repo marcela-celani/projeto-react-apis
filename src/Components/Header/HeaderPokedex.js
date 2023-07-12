@@ -1,11 +1,12 @@
 import React from 'react'
-import {Container} from './headerStyle'
+import {Container, Logo} from './headerStyle'
+import logo from '../../assets/logo.png'
 
 const HeaderPokedex = ({tela, setTela}) => {
   return (
     <Container>
         <button onClick={(e)=> setTela('PokemonListPage')}>Todos os Pokémons</button>
-        <h1>Pokémon Logo</h1>
+        <Logo src={logo} />
         <h1></h1>
     </Container>
   )
