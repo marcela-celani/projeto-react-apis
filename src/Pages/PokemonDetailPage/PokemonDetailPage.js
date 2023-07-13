@@ -3,10 +3,10 @@ import HeaderDetails from '../../Components/Header/HeaderDetails'
 import { Container, Panel } from './pokemonDetailStyle'
 
 
-const PokemonDetailPage = ({tela, setTela}) => {
+const PokemonDetailPage = () => {
   return (
     <Container>
-      <HeaderDetails tela={tela} setTela={setTela}/>
+      <HeaderDetails/>
       <h1>Detalhes</h1>
       <Panel>
         <div className='imgfrente'>img pokemon frente</div>

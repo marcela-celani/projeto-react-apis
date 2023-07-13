@@ -18,5 +18,5 @@ export const Titulo = styled.h1`
     font-weight: 700;
     font-size: 48px;
     line-height: 72px;
-    margin-left: 50px;
+    margin: 50px;
 `

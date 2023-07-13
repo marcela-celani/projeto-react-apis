@@ -6,16 +6,17 @@ export const PokemonContext = createContext()
 const PokemonProvider = ({ children }) => {
     
     const [pokemon, setPokemon] = useState([])
+    
 
     useEffect(()=> {
         getPokemons()
     }, [])
 
+    let arrayPokemon = []
+
     const getPokemons = async () => {
         
-        let arrayPokemon = []
-
-        for (let i=1; i <= 20; i++){
+        for (let i=1; i <= 150; i++){
             arrayPokemon.push(`https://pokeapi.co/api/v2/pokemon/${i}/`)
         }
 
@@ -26,10 +27,46 @@ const PokemonProvider = ({ children }) => {
 
     }
 
-    console.log(pokemon)
+    const [pokedex, setPokedex] = useState('')
+    
+    const addToPokedex = (id) => {
+        const newItem = pokemon.find((pokemon) => id === pokemon.data.id)
+        
+        if(pokedex.includes(newItem)) {
+            setPokedex([...pokedex])
+            alert('o pokémon já está na pokedex')
+        } else {
+            setPokedex([...pokedex, newItem])
+            alert('o pokémn foi add')
+        }
+
+     
+          
+    }
+
+    const saveLocalStorage = () => {
+        const String = JSON.stringify(pokedex);
+        localStorage.setItem("Pokedex", String);
+    };
+    const getItemsLocalStorage = () => {
+        const Parse = JSON.parse(localStorage.getItem("Pokedex"));
+    
+        if (Parse) {
+          setPokedex(Parse);
+        }
+      };
+    
+    useEffect(() => {
+        getItemsLocalStorage();
+      }, []);
+    
+      useEffect(() => {
+        saveLocalStorage();
+      }, [pokedex]); 
+    
 
     return(
-        <PokemonContext.Provider value={{pokemon, getPokemons}}>
+        <PokemonContext.Provider value={{pokemon, setPokedex,  getPokemons, pokedex,  addToPokedex}}>
             {children}
         </PokemonContext.Provider>
     )

@@ -3,14 +3,23 @@ import PokemonCard from '../../Components/PokemonCard/PokemonCard'
 import { Container , Titulo } from './pokemonListStyle'
 import HeaderPokemonlist from '../../Components/Header/HeaderPokemonlist'
 import { PokemonContext } from '../../contexts/PokemonContext'
+import { useNavigate } from 'react-router-dom'
 
-const PokemonListPage = ({tela, setTela}) => {
+const PokemonListPage = () => {
   
-  const {pokemon, getPokemons} = useContext(PokemonContext)
+  const {pokemon, getPokemons, pokedex, addToPokedex} = useContext(PokemonContext)
+
+  const navigate = useNavigate()
+
+  const goToPokedex = () => {
+    navigate('/pokedex')
+  }
+  
+
   
   return (
     <>
-      <HeaderPokemonlist tela={tela} setTela={setTela}/>
+      <HeaderPokemonlist goToPokedex={goToPokedex} />
       <Titulo>Todos os Pokémons</Titulo>
       <Container>
         {pokemon.map((item) => {
@@ -28,8 +37,7 @@ const PokemonListPage = ({tela, setTela}) => {
             id={item.data.id}
             key={item.data.id}
             type={types}
-            tela={tela} 
-            setTela={setTela}/>
+            addToPokedex={addToPokedex} />
           )
         })}
       </Container>
