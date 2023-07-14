@@ -1,22 +1,16 @@
 import React, { useContext } from "react";
 import { Container, Titulo } from "./pokedexStyle";
 import Header from "../../Components/Header/Header";
-import { useNavigate } from "react-router-dom";
 import { PokemonContext } from "../../contexts/PokemonContext";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 
 const PokedexPage = () => {
-  const navigate = useNavigate();
-
-  const goToHome = () => {
-    navigate("/");
-  };
 
   const { pokedex, getPokemons, addToPokedex, removeFromPokedex} = useContext(PokemonContext);
 
   return (
     <>
-      <Header goToHome={goToHome} />
+      <Header />
       <Titulo>Meus Pokémons</Titulo>
       <Container>
         {pokedex.length === 0

@@ -1,10 +1,13 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import {Container , Logo, Button, LinkPage } from './headerStyle'
 import logo from '../../assets/logo.png'
 import icone from '../../assets/arrow.png'
+import {goToHome, goToPokedex} from '../../routes/cordinator'
 
-const Header = ({goToPokedex, goToHome}) => {
+const Header = () => {
+
+const navigate = useNavigate()
 
 const location = useLocation()
 
@@ -17,7 +20,7 @@ const location = useLocation()
             <img className='icone' src={icone} alt=''/>
           </div>
           <div>
-            <LinkPage onClick={()=> goToHome()}>Todos os Pokémons</LinkPage>
+            <LinkPage onClick={()=> goToHome(navigate)}>Todos os Pokémons</LinkPage>
           </div>
         </div>
         <Logo src={logo} />
@@ -30,7 +33,7 @@ const location = useLocation()
         <Container>
         <h1></h1>
         <Logo src={logo} />
-        <Button className='blue' onClick={()=>goToPokedex()}>Pokédex</Button>
+        <Button className='blue' onClick={()=>goToPokedex(navigate)}>Pokédex</Button>
         </Container>
     :
     location.pathname.includes('/pokemondetails') &&
@@ -40,7 +43,7 @@ const location = useLocation()
           <img className='icone' src={icone} alt=''/>
         </div>
         <div>
-          <LinkPage href='/'>Todos os Pokémons</LinkPage>
+        <LinkPage onClick={()=> goToHome(navigate)}>Todos os Pokémons</LinkPage>
         </div>
       </div>
       <Logo src={logo} />

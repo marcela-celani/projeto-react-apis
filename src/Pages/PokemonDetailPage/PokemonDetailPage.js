@@ -6,7 +6,7 @@ import Header from '../../Components/Header/Header'
 const PokemonDetailPage = () => {
   return (
     <Container>
-      <Header/>
+      <Header />
       <h1>Detalhes</h1>
       <Panel>
         <div className='imgfrente'>img pokemon frente</div>

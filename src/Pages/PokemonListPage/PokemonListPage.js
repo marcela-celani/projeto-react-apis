@@ -9,17 +9,10 @@ const PokemonListPage = () => {
   
   const {pokemon, getPokemons, pokedex, addToPokedex, removeFromPokedex} = useContext(PokemonContext)
 
-  const navigate = useNavigate()
 
-  const goToPokedex = () => {
-    navigate('/pokedex')
-  }
-  
-
-  
   return (
     <>
-      <Header goToPokedex={goToPokedex} />
+      <Header />
       <Titulo>Todos os Pokémons</Titulo>
       <Container>
         {pokemon.map((item) => {

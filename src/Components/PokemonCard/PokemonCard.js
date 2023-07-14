@@ -7,7 +7,7 @@ import {
   ImgPoke,
   ButtonExcluir
 } from "./pokemonCardStyle";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name }) => {
@@ -66,6 +66,12 @@ const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name })
       backgroundColor = "transparent";
   }
 
+  const navigate = useNavigate()
+
+  const goToDetails = () => {
+    navigate('/pokemondetails')
+  }
+
   const location = useLocation()
 
   return (
@@ -81,7 +87,7 @@ const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name })
         </ContainerId>
         <ContainerButton>
           <div>
-            <a href="/pokemondetails">detalhes</a>
+            <button onClick={()=> goToDetails()}>detalhes</button>
           </div>
 
 

@@ -6,7 +6,7 @@ export const PokemonContext = createContext()
 const PokemonProvider = ({ children }) => {
     
     const [pokemon, setPokemon] = useState([])
-    
+
 
     useEffect(()=> {
         getPokemons()
@@ -71,7 +71,7 @@ const PokemonProvider = ({ children }) => {
     
 
     return(
-        <PokemonContext.Provider value={{pokemon, setPokedex,  getPokemons, pokedex,  addToPokedex, removeFromPokedex}}>
+        <PokemonContext.Provider value={{ pokemon, setPokedex,  getPokemons, pokedex,  addToPokedex, removeFromPokedex}}>
             {children}
         </PokemonContext.Provider>
     )
