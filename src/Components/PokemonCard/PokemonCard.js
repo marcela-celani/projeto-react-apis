@@ -5,11 +5,12 @@ import {
   ContainerButton,
   ContainerId,
   ImgPoke,
+  ButtonExcluir
 } from "./pokemonCardStyle";
+import { useLocation } from "react-router-dom";
 
-import Route from '../../routes/Router'
 
-const PokemonCard = ({ addToPokedex, image, type, id, name }) => {
+const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name }) => {
   let backgroundColor;
 
   const pokemonTypes = type.split(" ");
@@ -65,6 +66,8 @@ const PokemonCard = ({ addToPokedex, image, type, id, name }) => {
       backgroundColor = "transparent";
   }
 
+  const location = useLocation()
+
   return (
     <>
       <Card style={{ backgroundColor }}>
@@ -80,9 +83,20 @@ const PokemonCard = ({ addToPokedex, image, type, id, name }) => {
           <div>
             <a href="/pokemondetails">detalhes</a>
           </div>
+
+
+          {location.pathname === '/' &&
           <div>
             <ButtonCapturar onClick={()=> addToPokedex(id)}>Capturar!</ButtonCapturar>
           </div>
+          }
+
+          {location.pathname === '/pokedex' &&
+          <div>
+            <ButtonExcluir onClick={()=> removeFromPokedex(id)}>Excluir</ButtonExcluir>
+          </div>
+          }
+
         </ContainerButton>
       </Card>
     </>

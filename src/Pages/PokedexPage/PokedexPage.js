@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Container, Titulo } from "./pokedexStyle";
-import HeaderPokedex from "../../Components/Header/HeaderPokedex";
+import Header from "../../Components/Header/Header";
 import { useNavigate } from "react-router-dom";
 import { PokemonContext } from "../../contexts/PokemonContext";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
@@ -12,12 +12,11 @@ const PokedexPage = () => {
     navigate("/");
   };
 
-  const { pokedex, getPokemons, addToPokedex } =
-    useContext(PokemonContext);
+  const { pokedex, getPokemons, addToPokedex, removeFromPokedex} = useContext(PokemonContext);
 
   return (
     <>
-      <HeaderPokedex goToHome={goToHome} />
+      <Header goToHome={goToHome} />
       <Titulo>Meus Pokémons</Titulo>
       <Container>
         {pokedex.length === 0
@@ -39,6 +38,7 @@ const PokedexPage = () => {
                   key={item.data.id}
                   type={types}
                   addToPokedex={addToPokedex}
+                  removeFromPokedex={removeFromPokedex}
                 />
               );
             })}

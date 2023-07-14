@@ -27,7 +27,7 @@ const PokemonProvider = ({ children }) => {
 
     }
 
-    const [pokedex, setPokedex] = useState('')
+    const [pokedex, setPokedex] = useState([])
     
     const addToPokedex = (id) => {
         const newItem = pokemon.find((pokemon) => id === pokemon.data.id)
@@ -38,35 +38,40 @@ const PokemonProvider = ({ children }) => {
         } else {
             setPokedex([...pokedex, newItem])
             alert('o pokémn foi add')
-        }
-
-     
-          
+        }     
     }
 
-    const saveLocalStorage = () => {
-        const String = JSON.stringify(pokedex);
-        localStorage.setItem("Pokedex", String);
-    };
-    const getItemsLocalStorage = () => {
-        const Parse = JSON.parse(localStorage.getItem("Pokedex"));
+    const removeFromPokedex = (id) => {
+        const removeItem = pokedex.filter((pokemon) => {
+            return (id !== pokemon.data.id)
+        })
+
+        setPokedex(removeItem)
+    }
+
+    // const saveLocalStorage = () => {
+    //     const String = JSON.stringify(pokedex);
+    //     localStorage.setItem("Pokedex", String);
+    // };
+    // const getItemsLocalStorage = () => {
+    //     const Parse = JSON.parse(localStorage.getItem("Pokedex"));
     
-        if (Parse) {
-          setPokedex(Parse);
-        }
-      };
+    //     if (Parse) {
+    //       setPokedex(Parse);
+    //     }
+    //   };
     
-    useEffect(() => {
-        getItemsLocalStorage();
-      }, []);
+    // useEffect(() => {
+    //     getItemsLocalStorage();
+    //   }, []);
     
-      useEffect(() => {
-        saveLocalStorage();
-      }, [pokedex]); 
+    //   useEffect(() => {
+    //     saveLocalStorage();
+    //   }, [pokedex]); 
     
 
     return(
-        <PokemonContext.Provider value={{pokemon, setPokedex,  getPokemons, pokedex,  addToPokedex}}>
+        <PokemonContext.Provider value={{pokemon, setPokedex,  getPokemons, pokedex,  addToPokedex, removeFromPokedex}}>
             {children}
         </PokemonContext.Provider>
     )

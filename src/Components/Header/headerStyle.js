@@ -29,7 +29,7 @@ export const Logo = styled.img`
   height: 113px;
 `;
 
-export const LinkPage = styled.a`
+export const LinkPage = styled.h1`
   font-family: "Poppins", sans-serif;
   font-size: 24px;
   line-height: 36px;
@@ -40,6 +40,7 @@ export const LinkPage = styled.a`
 
   &:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
   
 `;

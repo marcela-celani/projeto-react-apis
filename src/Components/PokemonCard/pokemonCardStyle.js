@@ -69,3 +69,20 @@ export const ButtonCapturar = styled.button`
     line-height: 24px;
     font-family: 'Poppins', sans-serif;
 `
+
+export const ButtonExcluir = styled.button`
+    height: 38px;
+    width: 146px;
+    border-radius: 8px;
+    padding: 4px 10px;
+    outline: none;
+    background-color: #FF6262;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: 'Poppins', sans-serif;
+`
+
+

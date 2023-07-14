@@ -1,12 +1,12 @@
 import React from 'react'
-import HeaderDetails from '../../Components/Header/HeaderDetails'
 import { Container, Panel } from './pokemonDetailStyle'
+import Header from '../../Components/Header/Header'
 
 
 const PokemonDetailPage = () => {
   return (
     <Container>
-      <HeaderDetails/>
+      <Header/>
       <h1>Detalhes</h1>
       <Panel>
         <div className='imgfrente'>img pokemon frente</div>
