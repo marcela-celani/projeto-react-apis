@@ -2,13 +2,11 @@ import React, { useContext } from 'react'
 import PokemonCard from '../../Components/PokemonCard/PokemonCard'
 import { Container , Titulo } from './pokemonListStyle'
 import { PokemonContext } from '../../contexts/PokemonContext'
-import { useNavigate } from 'react-router-dom'
 import Header from '../../Components/Header/Header'
 
 const PokemonListPage = () => {
   
-  const {pokemon, getPokemons, pokedex, addToPokedex, removeFromPokedex} = useContext(PokemonContext)
-
+  const {pokemon, addToPokedex, removeFromPokedex} = useContext(PokemonContext)
 
   return (
     <>
@@ -23,7 +21,6 @@ const PokemonListPage = () => {
 
           return(
           <PokemonCard 
-            getPokemons={getPokemons}
             pokemon={item}
             image={item.data.sprites.other['official-artwork'].front_default}
             name={item.data.name}

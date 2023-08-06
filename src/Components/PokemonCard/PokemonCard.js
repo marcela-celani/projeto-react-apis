@@ -8,9 +8,10 @@ import {
   ButtonExcluir
 } from "./pokemonCardStyle";
 import { useLocation, useNavigate } from "react-router-dom";
+import { goToDetails } from "../../routes/cordinator";
 
 
-const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name }) => {
+const PokemonCard = ({pokemon, addToPokedex, removeFromPokedex, image, type, id, name }) => {
   let backgroundColor;
 
   const pokemonTypes = type.split(" ");
@@ -67,11 +68,6 @@ const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name })
   }
 
   const navigate = useNavigate()
-
-  const goToDetails = () => {
-    navigate('/pokemondetails')
-  }
-
   const location = useLocation()
 
   return (
@@ -87,7 +83,7 @@ const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name })
         </ContainerId>
         <ContainerButton>
           <div>
-            <button onClick={()=> goToDetails()}>detalhes</button>
+            <button onClick={()=> goToDetails(navigate, id)}>detalhes</button>
           </div>
 
 

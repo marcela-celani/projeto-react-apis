@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Container, Titulo } from "./pokedexStyle";
 import Header from "../../Components/Header/Header";
 import { PokemonContext } from "../../contexts/PokemonContext";
@@ -6,7 +6,11 @@ import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 
 const PokedexPage = () => {
 
-  const { pokedex, getPokemons, addToPokedex, removeFromPokedex} = useContext(PokemonContext);
+  const { pokedex, getPokemons, addToPokedex, removeFromPokedex, getItemsLocalStorage} = useContext(PokemonContext);
+
+  useEffect(() => {
+    getItemsLocalStorage();
+}, []);
 
   return (
     <>

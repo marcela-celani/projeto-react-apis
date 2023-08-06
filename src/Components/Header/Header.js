@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {Container , Logo, Button, LinkPage } from './headerStyle'
 import logo from '../../assets/logo.png'
 import icone from '../../assets/arrow.png'
 import {goToHome, goToPokedex} from '../../routes/cordinator'
+import { PokemonContext } from '../../contexts/PokemonContext'
 
-const Header = () => {
+const Header = ({id}) => {
+
+const {addToPokedex, removeFromPokedex, pokedex} = useContext(PokemonContext);
 
 const navigate = useNavigate()
 
@@ -47,7 +50,12 @@ const location = useLocation()
         </div>
       </div>
       <Logo src={logo} />
-      <Button className='red'>Excluir da Pokédex</Button>
+      {
+      pokedex.some((item) => item.data.id === id) ? 
+      <Button onClick={()=> removeFromPokedex(id)} className='red'>Excluir da Pokédex</Button> 
+      : 
+      <Button onClick={()=> addToPokedex(id)} className='blue'>Adicionar a Pokédex</Button>
+      }
     </Container>
     }
     </>
