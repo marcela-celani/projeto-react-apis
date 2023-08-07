@@ -8,6 +8,7 @@ const PokemonListPage = () => {
   
   const {pokemon, addToPokedex, removeFromPokedex} = useContext(PokemonContext)
 
+
   return (
     <>
       <Header />
@@ -17,7 +18,6 @@ const PokemonListPage = () => {
 
           const types = item.data.types
             .map((types) => types.type.name)
-            .join(' ')
 
           return(
           <PokemonCard 

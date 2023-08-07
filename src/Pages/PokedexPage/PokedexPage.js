@@ -22,7 +22,6 @@ const PokedexPage = () => {
           : pokedex.map((item) => {
               const types = item.data.types
                 .map((types) => types.type.name)
-                .join(" ");
 
               return (
                 <PokemonCard

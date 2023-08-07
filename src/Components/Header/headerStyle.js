@@ -57,6 +57,8 @@ export const Button = styled.button`
   border: none;
   justify-self: end;
   margin-right: 42px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
 
   &.blue {
     background-color: #33a4f5;
@@ -64,5 +66,9 @@ export const Button = styled.button`
 
   &.red {
     background-color: #ff6262;
+  }
+
+  &:hover, &:focus {
+    transform: scale(1.05);
   }
 `;

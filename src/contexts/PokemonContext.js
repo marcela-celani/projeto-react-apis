@@ -1,5 +1,23 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import bug from '../assets/types-image/bug.png'
+import dark from '../assets/types-image/dark.png'
+import dragon from '../assets/types-image/dragon.png'
+import electric from '../assets/types-image/electric.png'
+import fairy from '../assets/types-image/fairy.png'
+import fighting from '../assets/types-image/fighting.png'
+import fire from '../assets/types-image/fire.png'
+import flying from '../assets/types-image/flying.png'
+import ghost from '../assets/types-image/ghost.png'
+import grass from '../assets/types-image/grass.png'
+import ground from '../assets/types-image/ground.png'
+import ice from '../assets/types-image/ice.png'
+import normal from '../assets/types-image/normal.png'
+import poison from '../assets/types-image/poison.png'
+import psychic from '../assets/types-image/psychic.png'
+import rock from '../assets/types-image/rock.png'
+import steel from '../assets/types-image/steel.png'
+import water from '../assets/types-image/water.png'
 
 export const PokemonContext = createContext()
 
@@ -49,72 +67,127 @@ const PokemonProvider = ({ children }) => {
     }
     
     
+    const background = (type) => {
+
+        let backgroundColor;
+      
+        switch (type) {
+          case "grass":
+            backgroundColor = "#729F92";
+            break;
+          case "poison":
+            backgroundColor = "#AD61AE";
+            break;
+          case "fire":
+            backgroundColor = "#EAAB7D";
+            break;
+          case "water":
+            backgroundColor = "#71C3FF";
+            break;
+          case "bug":
+            backgroundColor = "#76A866";
+            break;
+          case "normal":
+            backgroundColor = "#BF9762";
+            break;
+          case "dragon":
+            backgroundColor = "#004170";
+            break;
+          case "ghost":
+            backgroundColor = "#67547f";
+            break;
+          case "rock":
+            backgroundColor = "#b7b8cd";
+            break;
+          case "ice":
+            backgroundColor = "#94dbd3";
+            break;
+          case "psychic":
+            backgroundColor = "#f986a9";
+            break;
+          case "electric":
+            backgroundColor = "#eed272";
+            break;
+          case "fighting":
+            backgroundColor = "#da9a8b";
+            break;
+          case "ground":
+            backgroundColor = "#7d685c";
+            break;
+          case "fairy":
+            backgroundColor = "#ffc3e1";
+            break;
+      
+          default:
+            backgroundColor = "transparent";
+        }
+
+        return backgroundColor
+    
+    }
+
+
+    const backgroundImg = (type) => {
+
+      let image;
+    
+      switch (type) {
+        case "grass":
+          image = grass;
+          break;
+        case "poison":
+          image = poison;
+          break;
+        case "fire":
+          image = fire;
+          break;
+        case "water":
+          image = water;
+          break;
+        case "bug":
+          image = bug;
+          break;
+        case "normal":
+          image = normal;
+          break;
+        case "dragon":
+          image = dragon;
+          break;
+        case "ghost":
+          image = ghost;
+          break;
+        case "rock":
+          image = rock;
+          break;
+        case "ice":
+          image = ice;
+          break;
+        case "psychic":
+          image = psychic;
+          break;
+        case "electric":
+          image = electric;
+          break;
+        case "fighting":
+          image = fighting;
+          break;
+        case "ground":
+          image = ground;
+          break;
+        case "fairy":
+          image = fairy;
+          break;
+        case "flying":
+          image = flying;
+          break;
+    
+        default:
+          image = "transparent";
+      }
+
+      return image
   
-    // const pokemonType = pokemon.map((item) => {
-    //     const type = item.data.types
-    //     .map((item) => item.type.name)
-    //     .join(' ')
-    //     .split(" ")
-
-    //     return type
-    // })
-
-    // console.log(pokemonType)
-
-
-    // let backgroundColor;
-  
-    // switch (pokemonType[0]) {
-    //   case "grass":
-    //     backgroundColor = "#729F92";
-    //     break;
-    //   case "poison":
-    //     backgroundColor = "#AD61AE";
-    //     break;
-    //   case "fire":
-    //     backgroundColor = "#EAAB7D";
-    //     break;
-    //   case "water":
-    //     backgroundColor = "#71C3FF";
-    //     break;
-    //   case "bug":
-    //     backgroundColor = "#76A866";
-    //     break;
-    //   case "normal":
-    //     backgroundColor = "#BF9762";
-    //     break;
-    //   case "dragon":
-    //     backgroundColor = "#004170";
-    //     break;
-    //   case "ghost":
-    //     backgroundColor = "#67547f";
-    //     break;
-    //   case "rock":
-    //     backgroundColor = "#b7b8cd";
-    //     break;
-    //   case "ice":
-    //     backgroundColor = "#94dbd3";
-    //     break;
-    //   case "psychic":
-    //     backgroundColor = "#f986a9";
-    //     break;
-    //   case "electric":
-    //     backgroundColor = "#eed272";
-    //     break;
-    //   case "fighting":
-    //     backgroundColor = "#da9a8b";
-    //     break;
-    //   case "ground":
-    //     backgroundColor = "#7d685c";
-    //     break;
-    //   case "fairy":
-    //     backgroundColor = "#ffc3e1";
-    //     break;
-  
-    //   default:
-    //     backgroundColor = "transparent";
-    // }
-
+  }
     
 
     const saveLocalStorage = () => {
@@ -138,14 +211,9 @@ const PokemonProvider = ({ children }) => {
         getItemsLocalStorage();
     }, []);
     
-    // useEffect(() => {
-    //     getItemsLocalStorage();
-    // }, []);
-    
- 
 
     return(
-        <PokemonContext.Provider value={{ pokemon, setPokedex,  getPokemons, pokedex,  addToPokedex, removeFromPokedex, getItemsLocalStorage }}>
+        <PokemonContext.Provider value={{ pokemon, setPokedex,  getPokemons, pokedex,  addToPokedex, removeFromPokedex, background, backgroundImg, getItemsLocalStorage }}>
             {children}
         </PokemonContext.Provider>
     )

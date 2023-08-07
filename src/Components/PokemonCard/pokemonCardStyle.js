@@ -36,6 +36,12 @@ export const ContainerId = styled.div`
         font-size: 16px;
         font-weight: 700;
     }
+
+    .type-container {
+        img {
+            margin-right: 6px;
+        }
+    }
 `
 
 export const ImgPoke = styled.img`
@@ -47,12 +53,27 @@ export const ImgPoke = styled.img`
 export const ContainerButton = styled.div`
     display: flex;
     justify-content: space-between;
-    margin: 1rem 1rem;
+    margin: 1rem 1rem 1rem 1.5rem;
     align-items: center;
 `
 
-export const ButtonDetalhes = styled.button`
+export const ButtonDetalhes = styled.h1`
+    
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 36px;
+  align-self: center;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
 
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    transform: scale(1.05);
+    
+  }
+  
 
 `
 
@@ -68,6 +89,14 @@ export const ButtonCapturar = styled.button`
     font-weight: 400;
     line-height: 24px;
     font-family: 'Poppins', sans-serif;
+
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+
+    &:hover {
+        transform: scale(1.1);
+        font-weight: 700;
+    }
 `
 
 export const ButtonExcluir = styled.button`
@@ -83,6 +112,14 @@ export const ButtonExcluir = styled.button`
     font-weight: 400;
     line-height: 24px;
     font-family: 'Poppins', sans-serif;
+
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+
+    &:hover {
+        transform: scale(1.10);
+        font-weight: 700;
+    }
 `
 
 
