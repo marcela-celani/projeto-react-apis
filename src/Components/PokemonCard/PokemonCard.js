@@ -29,7 +29,7 @@ const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name })
           <div className="etiqueta">
             <h4>{id < 10 ? `#0${id}` : `#${id}`}</h4>
             <h2>{`${name}`.charAt(0).toUpperCase() + `${name}`.slice(1)}</h2>
-            <div className="type-container">{type.length === 1 ? <img src={backgroundImg(type[0])} alt="img"/> : <div><img src={backgroundImg(type[0])} alt="img"/><img src={backgroundImg(type[1])} alt="img"/></div>}</div>
+            <div className="type-container">{type.length === 1 ? <img src={backgroundImg(type[0])} alt="imagem"/> : <div><img src={backgroundImg(type[0])} alt="imagem"/><img src={backgroundImg(type[1])} alt="imagem"/></div>}</div>
           </div>
           <ImgPoke src={image} alt="" />
         </ContainerId>
