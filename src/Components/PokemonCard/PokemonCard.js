@@ -31,7 +31,7 @@ const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name })
             <h2>{`${name}`.charAt(0).toUpperCase() + `${name}`.slice(1)}</h2>
             <div className="type-container">{type.length === 1 ? <img src={backgroundImg(type[0])} alt="imagem"/> : <div><img src={backgroundImg(type[0])} alt="imagem"/><img src={backgroundImg(type[1])} alt="imagem"/></div>}</div>
           </div>
-          <ImgPoke src={image} alt="" />
+          <ImgPoke src={image} alt="imagem" />
         </ContainerId>
         <ContainerButton>
           <div>
