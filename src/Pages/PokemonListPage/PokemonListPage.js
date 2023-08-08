@@ -2,12 +2,16 @@ import React, { useContext } from 'react'
 import PokemonCard from '../../Components/PokemonCard/PokemonCard'
 import { Container , Titulo } from './pokemonListStyle'
 import { PokemonContext } from '../../contexts/PokemonContext'
+import modalcapturar from '../../assets/modalcapturar.png'
+
 import Header from '../../Components/Header/Header'
+import { Modal, ModalCloseButton, ModalContent, ModalOverlay } from '@chakra-ui/react'
 
 const PokemonListPage = () => {
   
-  const {pokemon, addToPokedex, removeFromPokedex} = useContext(PokemonContext)
+  const {pokemon, addToPokedex, removeFromPokedex, closeModal, isOpen} = useContext(PokemonContext)
 
+  
 
   return (
     <>
@@ -32,6 +36,16 @@ const PokemonListPage = () => {
           )
         })}
       </Container>
+
+      
+      <Modal isOpen={isOpen} onClose={closeModal}>
+        <ModalOverlay />
+        <ModalContent>
+          <img src={modalcapturar} alt="" />
+          <ModalCloseButton />
+        </ModalContent>
+      </Modal>
+   
     </>
   )
 }

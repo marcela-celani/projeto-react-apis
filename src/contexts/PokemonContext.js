@@ -18,6 +18,7 @@ import psychic from '../assets/types-image/psychic.png'
 import rock from '../assets/types-image/rock.png'
 import steel from '../assets/types-image/steel.png'
 import water from '../assets/types-image/water.png'
+import { useDisclosure } from "@chakra-ui/react";
 
 export const PokemonContext = createContext()
 
@@ -45,15 +46,27 @@ const PokemonProvider = ({ children }) => {
     }
 
     const [pokedex, setPokedex] = useState([])
+
+    
+    // Estado para controlar a abertura/fechamento do modal
+    const [isOpen, setIsOpen] = useState(false)
+    const openModal = () => {
+      setIsOpen(true)
+    }
+    const closeModal = () => {
+      setIsOpen(false)
+    }
     
     const addToPokedex = (id) => {
         const newItem = pokemon.find((pokemon) => id === pokemon.data.id)
         
         if (pokedex.some((item) => item.data.id === newItem.data.id)) {
-            alert('o pokémon já está na pokedex');
+            // alert('o pokémon já está na pokedex');
+            openModal()
         } else {
             setPokedex([...pokedex, newItem]);
-            alert('o pokémon foi adicionado');
+            // alert('o pokémon foi adicionado');
+            openModal()
         }     
     }
 
@@ -63,7 +76,8 @@ const PokemonProvider = ({ children }) => {
         })
 
         setPokedex(removeItem)
-        alert('o pokémon foi removido da pokedex');
+        // alert('o pokémon foi removido da pokedex');
+        openModal()
     }
     
     
@@ -213,7 +227,7 @@ const PokemonProvider = ({ children }) => {
     
 
     return(
-        <PokemonContext.Provider value={{ pokemon, setPokedex,  getPokemons, pokedex,  addToPokedex, removeFromPokedex, background, backgroundImg, getItemsLocalStorage }}>
+        <PokemonContext.Provider value={{ pokemon, setPokedex,  getPokemons, pokedex,  addToPokedex, removeFromPokedex, background, backgroundImg, getItemsLocalStorage, openModal, closeModal, isOpen }}>
             {children}
         </PokemonContext.Provider>
     )

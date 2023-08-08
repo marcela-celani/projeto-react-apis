@@ -7,7 +7,7 @@ export const Card = styled.div`
     width: 440px;
     height: 210px;
     justify-content: space-between;
-    margin: 26.5px 15px;
+    margin: 26.5px 15px !important;
     border-radius: 12px;
     background-image: url(${pokeball});
     background-size: 250px;
@@ -22,6 +22,7 @@ export const ContainerId = styled.div`
     .etiqueta {
         margin-left: 23px;
         margin-top: 23px;
+        width: 100%;
     }
     
     h2 {
@@ -38,8 +39,13 @@ export const ContainerId = styled.div`
     }
 
     .type-container {
+        margin-top: 4px;
         img {
             margin-right: 6px;
+        }
+
+        span {
+            display: flex;
         }
     }
 `

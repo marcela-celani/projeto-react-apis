@@ -20,3 +20,8 @@ export const Titulo = styled.h1`
     line-height: 72px;
     margin: 50px;
 `
+
+export const ModalMessage = styled.h1`
+
+    border: 1px solid red;
+`

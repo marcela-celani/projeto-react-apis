@@ -1,44 +1,73 @@
 import React, { useContext, useEffect } from "react";
-import { Container, Titulo } from "./pokedexStyle";
+import { Container, Titulo, Button } from "./pokedexStyle";
 import Header from "../../Components/Header/Header";
 import { PokemonContext } from "../../contexts/PokemonContext";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
+import {
+  Modal,
+  ModalCloseButton,
+  ModalContent,
+  ModalOverlay,
+} from "@chakra-ui/react";
+import modalremover from "../../assets/modalremover.png";
+import { useNavigate } from "react-router-dom";
+import { goToHome } from "../../routes/cordinator";
 
 const PokedexPage = () => {
+  const {
+    pokedex,
+    getPokemons,
+    addToPokedex,
+    removeFromPokedex,
+    closeModal,
+    isOpen,
+    getItemsLocalStorage,
+  } = useContext(PokemonContext);
 
-  const { pokedex, getPokemons, addToPokedex, removeFromPokedex, getItemsLocalStorage} = useContext(PokemonContext);
+  const navigate = useNavigate()
 
   useEffect(() => {
     getItemsLocalStorage();
-}, []);
+  }, []);
 
   return (
     <>
       <Header />
       <Titulo>Meus Pokémons</Titulo>
       <Container>
-        {pokedex.length === 0
-          ? "vazio"
-          : pokedex.map((item) => {
-              const types = item.data.types
-                .map((types) => types.type.name)
+        {pokedex.length === 0 ? (
+          <div>
+            <h2>Você não possui pokémons na sua pokedex. </h2>
+            <Button onClick={()=> goToHome(navigate)}>Capturar Pokémons!</Button>
+          </div>
+        ) : (
+          pokedex.map((item) => {
+            const types = item.data.types.map((types) => types.type.name);
 
-              return (
-                <PokemonCard
-                  getPokemons={getPokemons}
-                  pokemon={item}
-                  image={
-                    item.data.sprites.other["official-artwork"].front_default
-                  }
-                  name={item.data.name}
-                  id={item.data.id}
-                  key={item.data.id}
-                  type={types}
-                  addToPokedex={addToPokedex}
-                  removeFromPokedex={removeFromPokedex}
-                />
-              );
-            })}
+            return (
+              <PokemonCard
+                getPokemons={getPokemons}
+                pokemon={item}
+                image={
+                  item.data.sprites.other["official-artwork"].front_default
+                }
+                name={item.data.name}
+                id={item.data.id}
+                key={item.data.id}
+                type={types}
+                addToPokedex={addToPokedex}
+                removeFromPokedex={removeFromPokedex}
+              />
+            );
+          })
+        )}
+        <Modal isOpen={isOpen} onClose={closeModal}>
+          <ModalOverlay />
+          <ModalContent>
+            <img src={modalremover} alt="" />
+            <ModalCloseButton />
+          </ModalContent>
+        </Modal>
       </Container>
     </>
   );

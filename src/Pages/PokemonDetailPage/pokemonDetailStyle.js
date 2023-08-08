@@ -94,6 +94,17 @@ export const Panel = styled.div`
         font-weight: 700;
     }
 
+    .type-container {
+        margin-top: 4px;
+        img {
+            margin-right: 6px;
+        }
+
+        span {
+            display: flex;
+        }
+    }
+
     @media only screen and (max-width: 767px) {
     /* Insira os estilos específicos para dispositivos móveis aqui */
     display: grid;
@@ -142,6 +153,10 @@ export const Panel = styled.div`
 
     .name {
         grid-area: d;
+        
+        .types {
+            display: flex;
+        }
     }
 
     .stats {
@@ -158,6 +173,7 @@ export const Panel = styled.div`
         height: 300px;
         align-self: top;
     }
+
     }
 
     /* Estilos para tablets (768px a 1023px) */
