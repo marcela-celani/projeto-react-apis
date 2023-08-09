@@ -40,7 +40,7 @@ const PokemonListPage = () => {
       
       <Modal isOpen={isOpen} onClose={closeModal}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent top={'35%'}>
           <img src={modalcapturar} alt="" />
           <ModalCloseButton />
         </ModalContent>

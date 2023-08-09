@@ -92,7 +92,7 @@ const PokemonDetailPage = () => {
       pokedex.some((item) => item.data.id === pokemonDetails.id) ? 
       <Modal isOpen={isOpen} onClose={closeModal}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent top={'35%'}>
           <img src={modalcapturar} alt="" />
           <ModalCloseButton />
         </ModalContent>
@@ -100,7 +100,7 @@ const PokemonDetailPage = () => {
       : 
       <Modal isOpen={isOpen} onClose={closeModal}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent top={'35%'}>
           <img src={modalremover} alt="" />
           <ModalCloseButton />
         </ModalContent>

@@ -63,7 +63,7 @@ const PokedexPage = () => {
         )}
         <Modal isOpen={isOpen} onClose={closeModal}>
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent top={'35%'}>
             <img src={modalremover} alt="" />
             <ModalCloseButton />
           </ModalContent>

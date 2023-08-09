@@ -206,7 +206,9 @@ const PokemonProvider = ({ children }) => {
 
     const saveLocalStorage = () => {
         const string = JSON.stringify(pokedex);
-        localStorage.setItem("Pokedex", string);
+        if (pokedex.length){
+          localStorage.setItem("Pokedex", string);
+        }   
     }
 
     const getItemsLocalStorage = () => {
@@ -215,7 +217,9 @@ const PokemonProvider = ({ children }) => {
         if (parse) {
           setPokedex(parse);
         }
+        console.log(parse)
     };
+
 
     useEffect(() => {
         saveLocalStorage();
