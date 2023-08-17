@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const ContainerArea = styled.div`
+    height: 100%;
+`
+
 export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -7,7 +11,7 @@ export const Container = styled.div`
     color: white;
     margin-left: 50px;
     justify-items: center;
-    height: 100%;
+
     
 
     h2 {

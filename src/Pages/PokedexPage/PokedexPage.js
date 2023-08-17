@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Container, Titulo, Button } from "./pokedexStyle";
+import { Container, Titulo, Button, ContainerArea } from "./pokedexStyle";
 import Header from "../../Components/Header/Header";
 import { PokemonContext } from "../../contexts/PokemonContext";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
@@ -31,45 +31,44 @@ const PokedexPage = () => {
   }, []);
 
   return (
-    <>
+    <ContainerArea>
       <Header />
-      <Titulo>Meus Pokémons</Titulo>
-      <Container>
-        {pokedex.length === 0 ? (
-          <div>
-            <h2>Você não possui pokémons na sua pokedex. </h2>
-            <Button onClick={()=> goToHome(navigate)}>Capturar Pokémons!</Button>
-          </div>
-        ) : (
-          pokedex.map((item) => {
-            const types = item.data.types.map((types) => types.type.name);
-
-            return (
-              <PokemonCard
-                getPokemons={getPokemons}
-                pokemon={item}
-                image={
-                  item.data.sprites.other["official-artwork"].front_default
-                }
-                name={item.data.name}
-                id={item.data.id}
-                key={item.data.id}
-                type={types}
-                addToPokedex={addToPokedex}
-                removeFromPokedex={removeFromPokedex}
-              />
-            );
-          })
-        )}
-        <Modal isOpen={isOpen} onClose={closeModal}>
-          <ModalOverlay />
-          <ModalContent top={'35%'}>
-            <img src={modalremover} alt="" />
-            <ModalCloseButton />
-          </ModalContent>
-        </Modal>
-      </Container>
-    </>
+        <Titulo>Meus Pokémons</Titulo>
+        <Container>
+          {pokedex.length === 0 ? (
+            <div>
+              <h2>Você não possui pokémons na sua pokedex. </h2>
+              <Button onClick={()=> goToHome(navigate)}>Capturar Pokémons!</Button>
+            </div>
+          ) : (
+            pokedex.map((item) => {
+              const types = item.data.types.map((types) => types.type.name);
+              return (
+                <PokemonCard
+                  getPokemons={getPokemons}
+                  pokemon={item}
+                  image={
+                    item.data.sprites.other["official-artwork"].front_default
+                  }
+                  name={item.data.name}
+                  id={item.data.id}
+                  key={item.data.id}
+                  type={types}
+                  addToPokedex={addToPokedex}
+                  removeFromPokedex={removeFromPokedex}
+                />
+              );
+            })
+          )}
+          <Modal isOpen={isOpen} onClose={closeModal}>
+            <ModalOverlay />
+            <ModalContent top={'35%'}>
+              <img src={modalremover} alt="" />
+              <ModalCloseButton />
+            </ModalContent>
+          </Modal>
+        </Container>
+    </ContainerArea>
   );
 };
 

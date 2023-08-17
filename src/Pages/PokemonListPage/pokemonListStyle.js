@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
-    height: 82vh;
+    height: 100%;
     justify-content: center;
 
     h1 {

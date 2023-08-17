@@ -6,6 +6,7 @@ import modalcapturar from '../../assets/modalcapturar.png'
 
 import Header from '../../Components/Header/Header'
 import { Modal, ModalCloseButton, ModalContent, ModalOverlay } from '@chakra-ui/react'
+import Footer from '../../Components/Footer/Footer'
 
 const PokemonListPage = () => {
   
@@ -16,6 +17,7 @@ const PokemonListPage = () => {
   return (
     <>
       <Header />
+      
       <Titulo>Todos os Pokémons</Titulo>
       <Container>
         {pokemon.map((item) => {
@@ -36,6 +38,8 @@ const PokemonListPage = () => {
           )
         })}
       </Container>
+      
+      
 
       
       <Modal isOpen={isOpen} onClose={closeModal}>
@@ -45,6 +49,7 @@ const PokemonListPage = () => {
           <ModalCloseButton />
         </ModalContent>
       </Modal>
+      
    
     </>
   )

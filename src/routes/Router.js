@@ -4,6 +4,7 @@ import PokedexPage from '../Pages/PokedexPage/PokedexPage';
 import PokemonDetailPage from '../Pages/PokemonDetailPage/PokemonDetailPage';
 import PokemonListPage from '../Pages/PokemonListPage/PokemonListPage';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
+import Footer from '../Components/Footer/Footer';
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   )
 }

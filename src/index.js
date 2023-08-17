@@ -8,11 +8,12 @@ import { ChakraProvider } from "@chakra-ui/react";
 const GlobalStyle = createGlobalStyle`
   
   * {
-    margin: 0 ;
+    margin: 0;
     padding: 0;
   }
   
   body {
+    height: auto;
   
   font-family: 'Inter', sans-serif !important;
   -webkit-font-smoothing: antialiased;
