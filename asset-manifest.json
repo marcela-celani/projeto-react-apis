@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/projeto-react-apis/static/js/main.ef4a02de.js",
+    "main.js": "/projeto-react-apis/static/js/main.bdd4ef85.js",
     "static/media/errorImage.png": "/projeto-react-apis/static/media/errorImage.4d1893a8cd6b886283ae.png",
     "static/media/logo.png": "/projeto-react-apis/static/media/logo.afe35d3a7a21f46a94af.png",
     "static/media/pokeball.png": "/projeto-react-apis/static/media/pokeball.0909791813521a9d5906.png",
     "index.html": "/projeto-react-apis/index.html",
-    "main.ef4a02de.js.map": "/projeto-react-apis/static/js/main.ef4a02de.js.map"
+    "main.bdd4ef85.js.map": "/projeto-react-apis/static/js/main.bdd4ef85.js.map"
   },
   "entrypoints": [
-    "static/js/main.ef4a02de.js"
+    "static/js/main.bdd4ef85.js"
   ]
 }
