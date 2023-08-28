@@ -8,7 +8,6 @@
 Table of contents
 * [Overview](#overview)
 * [Technologies](#technologies)
-* [Setup](#setup)
 * [Run & Deploy](#run--deploy)
 
 ## Technologies
@@ -42,28 +41,27 @@ The Project has 3 great sections:
     - It allows to add to / remove from Pokedex List
 
 ## Run & Deploy
+### Prerequisites:
 
-These are prerequisites for installing:
--   Node.js
--   npm
+- Node.js
+- npm
 
-To install dependencies in your project directory and run the application in your computer, run the following commands:
-
-```sh
+1. Clone this repository:
+```
+git clone https://github.com/marcela-celani/projeto-react-apis.git
+```
+2. Install dependencies:
+```
+cd my-app
 npm install
 ```
 
----
-
-```sh
-npm run start
+3. Start the development server:
+```
+npm start
 ```
 
----
-
-
-[Link do Deploy](https://marcela-celani.github.io/projeto-react-apis/#/)
-
+🔗[Deploy Link](https://marcela-celani.github.io/projeto-react-apis/)
 
 
   
