@@ -62,7 +62,7 @@ npm run start
 ---
 
 
-[Link do Deploy]([https://marcela-celani.github.io/astrodev-store/](https://marcela-celani.github.io/projeto-react-apis/#/)https://marcela-celani.github.io/projeto-react-apis/#/)
+[Link do Deploy](https://marcela-celani.github.io/projeto-react-apis/#/)
 
 
 
