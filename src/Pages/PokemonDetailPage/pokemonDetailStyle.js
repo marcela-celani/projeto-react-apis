@@ -94,7 +94,7 @@ export const Panel = styled.div`
   grid-template-columns: 25% 25% 25% 25%;
   border-radius: 32px;
 
-  align-items: center;
+  align-items: flex-start;
   padding: 26px;
   margin: 0 25px;
 
@@ -102,7 +102,7 @@ export const Panel = styled.div`
   background-size: 963px;
   background-repeat: no-repeat;
   background-position: right -120px top -120px;
-
+  column-gap: 15px;
   .imgfrente {
     grid-area: a;
     background-color: white;
@@ -112,8 +112,9 @@ export const Panel = styled.div`
 
   .moves {
     grid-area: e;
-    width: 20vw;
-    height: 453px;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
     background-color: white;
     border-radius: 8px;
   }
@@ -123,6 +124,7 @@ export const Panel = styled.div`
     background-color: white;
     border-radius: 8px;
     width: 282px;
+    align-self: flex-end;
   }
 
   .name {
@@ -131,12 +133,13 @@ export const Panel = styled.div`
 
   .stats {
     grid-area: b;
-    width: 300px;
-    height: 614px;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
     background-color: white;
     border-radius: 8px;
-    padding: 0 20px;
-
+    padding: 10px 20px;
+    
     h3 {
         padding-left: 0;
     }
@@ -198,7 +201,7 @@ export const Panel = styled.div`
     justify-items: center;
     align-items: center;
     padding: 26px;
-    margin: 0 25px;
+    margin: 170px 25px 0;
 
     background-image: url(${pokeball});
     background-size: 963px;

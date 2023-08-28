@@ -20,6 +20,26 @@ export const Container = styled.div`
     margin-left: 42px;
     align-self: center;
   }
+
+
+
+/* Estilos para tablets (768px a 1023px) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  div {
+    display: flex;
+    justify-self: end;
+    div {
+      margin-left: 10px;
+    }
+  }
+ 
+  & .icone {
+    width: 30px;
+    height: 25px;
+    margin-left: 0px;
+    align-self: center;
+  }
+}
 `;
 
 export const Logo = styled.img`
@@ -27,6 +47,12 @@ export const Logo = styled.img`
   align-self: center;
   width: 307px;
   height: 113px;
+
+  @media only screen and (max-width: 767px) {
+  /* Insira os estilos específicos para dispositivos móveis aqui */
+  width: 180px;
+  height: 80px;
+  }
 `;
 
 export const LinkPage = styled.h1`
@@ -71,4 +97,11 @@ export const Button = styled.button`
   &:hover, &:focus {
     transform: scale(1.05);
   }
+  @media only screen and (max-width: 767px) {
+  /* Insira os estilos específicos para dispositivos móveis aqui */
+  width: 40px;
+  height: 40px;
+  }
 `;
+
+
