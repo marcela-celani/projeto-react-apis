@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
 import PokemonProvider from "./contexts/PokemonContext";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -12,11 +13,12 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
+    height: auto;
   
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #5d5d5d;
+  background-color: #5d5d5d !important;
 }
 
 code {
@@ -27,10 +29,12 @@ code {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <PokemonProvider>
-    <React.StrictMode>
-      <GlobalStyle />
-      <App />
-    </React.StrictMode>
+      <ChakraProvider>
+        <React.StrictMode>
+          <GlobalStyle />
+          <App />
+        </React.StrictMode>
+      </ChakraProvider>
   </PokemonProvider>
 );
 

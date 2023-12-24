@@ -1,61 +1,68 @@
-import React from 'react'
-import { Card, ButtonDetalhes, ButtonCapturar, ContainerButton,ContainerId, ImgPoke } from './pokemonCardStyle'
+import React, { useContext } from "react";
+import {
+  Card,
+  ButtonCapturar,
+  ContainerButton,
+  ContainerId,
+  ImgPoke,
+  ButtonExcluir,
+  ButtonDetalhes
+} from "./pokemonCardStyle";
+import { useLocation, useNavigate } from "react-router-dom";
+import { goToDetails } from "../../routes/cordinator";
+import { PokemonContext } from "../../contexts/PokemonContext";
 
-const PokemonCard = ({tela, setTela, image, type, id, name }) => {
 
-  let backgroundColor;
+const PokemonCard = ({ addToPokedex, removeFromPokedex, image, type, id, name }) => {
 
-  const pokemonTypes = type.split(' ')
+  const {background, backgroundImg} = useContext(PokemonContext)
+
+  const backgroundColor = background(type[0])
+
+  const navigate = useNavigate()
+  const location = useLocation()
   
-  switch (pokemonTypes[0]) {
-
-      case "grass":
-        backgroundColor = "#729F92";
-        break;
-      case "poison":
-        backgroundColor = "#AD61AE";
-        break;
-      case "fire":
-        backgroundColor = "#EAAB7D";
-        break;
-      case "water":
-        backgroundColor = "#71C3FF";
-        break;
-      case "bug":
-        backgroundColor = "#76A866";
-        break;
-      case "normal":
-        backgroundColor = "#BF9762";
-        break;
-      case "dragon":
-        backgroundColor = "#004170";
-        break;
-      default:
-        backgroundColor = "transparent";
-  } 
-
   return (
     <>
-      <Card style={{backgroundColor}}>
+      <Card style={{ backgroundColor }}>
         <ContainerId>
-          <div className='etiqueta'>
+          <div className="etiqueta">
             <h4>{id < 10 ? `#0${id}` : `#${id}`}</h4>
             <h2>{`${name}`.charAt(0).toUpperCase() + `${name}`.slice(1)}</h2>
-            <h3>{type}</h3>
+            <div className="type-container">
+              {type.length === 1 ? 
+              <img src={backgroundImg(type[0])} alt="imagem"/> 
+              : 
+              <span>
+                <img src={backgroundImg(type[0])} alt="imagem"/>
+                <img src={backgroundImg(type[1])} alt="imagem"/>
+              </span>}
+            </div>
           </div>
-          <ImgPoke src={image} alt=''/>
+          <ImgPoke src={image} alt="imagem" />
         </ContainerId>
         <ContainerButton>
           <div>
-            <ButtonDetalhes onClick={(e)=> setTela('PokemonDetailPage')}>detalhes</ButtonDetalhes>
+            <ButtonDetalhes onClick={()=> goToDetails(navigate, id)}>Detalhes</ButtonDetalhes>
           </div>
+
+
+          {location.pathname === '/' &&
           <div>
-            <ButtonCapturar>Capturar!</ButtonCapturar>
+            <ButtonCapturar onClick={()=> addToPokedex(id)}>Capturar!</ButtonCapturar>
           </div>
+          }
+
+          {location.pathname === '/pokedex' &&
+          <div>
+            <ButtonExcluir onClick={()=> removeFromPokedex(id)}>Excluir</ButtonExcluir>
+          </div>
+          }
+
         </ContainerButton>
       </Card>
     </>
-  )
-}
+  );
+};
 
-export default PokemonCard
+export default PokemonCard;

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
-    height: 82vh;
+    height: 100%;
     justify-content: center;
 
     h1 {
@@ -18,5 +18,10 @@ export const Titulo = styled.h1`
     font-weight: 700;
     font-size: 48px;
     line-height: 72px;
-    margin-left: 50px;
+    margin: 50px;
+`
+
+export const ModalMessage = styled.h1`
+
+    border: 1px solid red;
 `
